@@ -1,0 +1,11 @@
+{
+  "name": "Claro y oro",
+  "slug": "white-gold",
+  "style": "",
+  "variables": {
+    "white": "#fafafa",
+    "primary": "#BFA86A",
+    "body-bg": "#fff",
+    "dark": "#000"
+  }
+}

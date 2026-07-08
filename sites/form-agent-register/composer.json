@@ -1,0 +1,9 @@
+{
+  "require": {
+    "ext-mbstring": "*",
+    "ext-dom": "*"
+  },
+  "scripts": {
+    "post-install-cmd": "cd wp-content/themes/form-agent-register;composer install;composer update"
+  }
+}

@@ -1,0 +1,5 @@
+mixin required(spec)
+  - spec = spec || {}
+  - spec.__class = spec.__class || ''
+
+  span.font-weight-bold.ml-2(class=spec.__class)&attributes(attributes) *

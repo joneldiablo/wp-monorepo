@@ -1,0 +1,16 @@
+extend ./base
+
+block form
+  form.form(enctype="multipart/form-data" method='POST' action=".")
+    +schema-recursive(site.data.schema)
+    .row.mb-4
+      .col.col-12.col-sm-8.col-md-6.col-lg-5
+        .custom-control.custom-checkbox
+          input#terms.custom-control-input(type="checkbox" required)
+          label.custom-control-label(for="terms")
+            | Acepto 
+            a.text-reset(href="#" data-toggle="modal" data-target="#terminosModal" style="text-decoration:underline") términos y condiciones
+            | .
+    .row.justify-content-center.mb-5
+      .col.col-12.col-sm-8.col-md-6.col-lg-4
+        button.btn.btn-primary.btn-block(type="submit") ENVIAR SOLICITUD

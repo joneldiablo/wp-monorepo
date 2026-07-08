@@ -1,0 +1,55 @@
+mixin credit-card(spec)
+  - spec = spec || {}
+  - spec.__class = spec.__class || ''
+
+  fieldset.credit-card(class=spec.__class)&attributes(attributes)
+    legend.h5.sr-only Medio de pago
+    .card.shadow.rounded-lg.bg-light
+      .card-header.bg-light.text-right Tarjeta de crédito/débito
+      .card-body
+        .row.align-items-center.mb-4
+          .col.col-3
+            .chip-card.d-none.d-sm-block
+          .col.col-12.col-sm-9
+            label.sr-only(for="owner") Nombre
+            input.form-control.form-control-sm(id="owner" name="card.owner" type="text" placeholder="Nombre" required="required")
+        .row.number
+          .col.col-6.col-sm-3
+            input.form-control.form-control-sm(id="cardn0" name="card.cardn.0" type="password" maxlength="4" placeholder="1234" pattern="[0-9]{4}" required="required")
+          .col.col-6.col-sm-3
+            input.form-control.form-control-sm(id="cardn1" name="card.cardn.1" type="password" maxlength="4" placeholder="5678" pattern="[0-9]{4}" required="required")
+          .col.col-6.col-sm-3
+            input.form-control.form-control-sm(id="cardn2" name="card.cardn.2" type="password" maxlength="4" placeholder="9876" pattern="[0-9]{4}" required="required")
+          .col.col-6.col-sm-3
+            input.form-control.form-control-sm(id="cardn3" name="card.cardn.3" type="text" maxlength="4" placeholder="5432" pattern="[0-9]{4}" required="required")
+        .row
+          .col.col-12.col-sm-6
+            label.mb-0.mt-3.text-nowrap
+              small Fecha de vencimiento
+            .row.date
+              .col.col-6
+                select.form-control.form-control-sm(id="month" name="card.month")
+                  option(value="01") 01
+                  option(value="02") 02
+                  option(value="03") 03
+                  option(value="04") 04
+                  option(value="05") 05
+                  option(value="06") 06
+                  option(value="07") 07
+                  option(value="08") 08
+                  option(value="09") 09
+                  option(value="10") 10
+                  option(value="11") 11
+                  option(value="12") 12
+              .col.col-6
+                select.form-control.form-control-sm(id="year" name="card.year")
+                  option(value="20") 20
+                  option(value="21") 21
+                  option(value="22") 22
+                  option(value="23") 23
+                  option(value="24") 24
+          .col.col-12.col-sm-3.offset-sm-3
+            label(for="cvv").mb-0.mt-3.text-nowrap
+              small cvv
+            input.text-center.form-control.form-control-sm(id="cvv" name="card.cvv" type="password" maxlength="4" placeholder="234" pattern="[0-9]{4}" required="required")
+      .card-footer.bg-light

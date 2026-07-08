@@ -1,0 +1,14 @@
+{
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    [
+      "@babel/plugin-transform-react-jsx",
+      {
+        "pragma": "preact.h"
+      }
+    ]
+  ],
+  "presets": [
+    "@babel/preset-env"
+  ]
+}

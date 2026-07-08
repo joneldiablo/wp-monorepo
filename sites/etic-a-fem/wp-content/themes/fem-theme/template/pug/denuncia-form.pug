@@ -1,0 +1,14 @@
+include ./form-field
+include ./schema-recursive
+include ./modal
+
+style.
+  label{display:block}
+  [data-dismiss="modal"]{display:none}
+  .modal{border-top:1px solid}
+  label.custom-control-label {display: inline;}
++schema-recursive(site.data.schema, site.data.data)
+//script.
+  (($)=>{
+    $('input.custom-file-input').prop('required', false);
+  })(jQuery);

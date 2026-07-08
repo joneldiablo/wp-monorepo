@@ -1,0 +1,10 @@
+// product-form styles
+.product-form {
+  thead th {
+    width: 33.33%;
+    min-width: 115px;
+    &:nth-child(2) {
+      min-width: 85px;
+    }
+  }
+}

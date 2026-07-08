@@ -1,0 +1,7 @@
+{
+    "require": {
+        "pug-php/pug": "^3.2",
+        "dompdf/dompdf": "^0.8.3",
+        "jurosh/pdf-merge": "^2.0"
+    }
+}

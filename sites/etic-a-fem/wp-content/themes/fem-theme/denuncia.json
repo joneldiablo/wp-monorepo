@@ -1,0 +1,618 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "title": "1.- Nombre",
+      "type": "string",
+      "required": true,
+      "view": {
+        "class": "col col-12 col-sm-6 mb-4"
+      }
+    },
+    "email": {
+      "title": "2.- Correo electrónico",
+      "$ref": "#/definitions/email",
+      "required": true,
+      "view": {
+        "class": "col col-12 col-sm-6 mb-4"
+      }
+    },
+    "phone": {
+      "title": "3.- Número telefónico",
+      "type": "tel",
+      "required": true,
+      "view": {
+        "class": "col col-12 col-sm-6 mb-2"
+      }
+    },
+    "institute": {
+      "title": "4.- Institución",
+      "type": "string",
+      "required": true,
+      "enum": [
+        "IMSS",
+        "ISSSTE",
+        "INSABI",
+        "Servicios Estatales",
+        {
+          "divider": "-----INSTITUTOS  NACIONALES DE SALUD-----"
+        },
+        "I. N. de Cancerología",
+        "I. N. de Cardiología Ignacio Chávez",
+        "I. N. de Enfermedades Respiratorias Ismael Cosío Villegas",
+        "I. N. de Pediatría",
+        "I. N. de Psiquiatría Dr. Ramón de la Fuente Muñíz",
+        "I. N. de Rehabilitación",
+        "I. N. de Ciencias Médicas y Nutrición Salvador Zubirán",
+        "I. N. de Neurología y Neurocirugía Manuel Velasco Suárez",
+        "I. N. de Medicina Genómica",
+        "I. N. de Perinatología Isidro Espinoza de los Reyes",
+        "I. N. de Geriatría",
+        "I. N. de Salud Pública",
+        "Hospital Infantil de México Federico Gómez",
+        {
+          "divider": "-----HOSPITAL GENERAL -----"
+        },
+        "H. General Dr. Manuel Gea González",
+        "H. General de México “Dr. Eduardo Liceaga”",
+        "H. Juárez de México",
+        "H. Juárez del Centro",
+        "H. de la Mujer",
+        {
+          "divider": "-----HOSPITAL REGIONAL DE ALTA ESPECIALIDAD-----"
+        },
+        "H.R.A.E. Bajío",
+        "H.R.A.E. Oaxaca",
+        "H.R.A.E. de la Península de Yucatán",
+        "H.R.A.E.s de Chiapas",
+        "H.R.A.E. de Ciudad Victoria \"Bicentenario 2011\"",
+        "H.R.A.E. de Ixtapaluca"
+      ],
+      "view": {
+        "class": "col col-12 col-sm-6 mb-2",
+        "default": "4.- Institución"
+      }
+    },
+    "state": {
+      "title": "en el estado de ...",
+      "type": "string",
+      "enum": [
+        "Aguascalientes",
+        "Baja California",
+        "Baja California Sur",
+        "Campeche",
+        "Ciudad de México (Distrito Federal)",
+        "Chiapas",
+        "Chihuahua",
+        "Coahuila",
+        "Colima",
+        "Durango",
+        "Estado de México",
+        "Guanajuato",
+        "Guerrero",
+        "Hidalgo",
+        "Jalisco",
+        "Michoacán",
+        "Morelos",
+        "Nayarit",
+        "Nuevo León",
+        "Oaxaca",
+        "Puebla",
+        "Querétaro",
+        "Quintana Roo",
+        "San Luis Potosí",
+        "Sinaloa",
+        "Sonora",
+        "Tabasco",
+        "Tamaulipas",
+        "Tlaxcala",
+        "Veracruz",
+        "Yucatán",
+        "Zacatecas"
+      ],
+      "view": {
+        "class": "col col-12 offset-sm-6 col-sm-6 mb-2",
+        "default": "en el estado de ..."
+      }
+    },
+    "anonymous": {
+      "title": "Quiero que mi demanda sea anónima",
+      "type": "boolean",
+      "view": {
+        "class": "col col-12 mb-4",
+        "control": "switch"
+      }
+    },
+    "service": {
+      "title": "5.- ¿A qué servicio acudiste?",
+      "type": "string",
+      "required": true,
+      "enum": [
+        "Alergia e Inmunología",
+        "Anestesiología",
+        "Audiología y Foniatría",
+        "Banco de Sangre",
+        "Cámara hiperbárica",
+        "Cardiología",
+        "Cirugía Experimental",
+        "Cirugía General",
+        "Cirugía Plástica",
+        "Cirugía Vascular y Angiología",
+        "Clínica del Dolor",
+        "Consulta externa",
+        "Dermatología",
+        "Endocrinología",
+        "Estomatología",
+        "Farmacología Clínica",
+        "Gastroenterología",
+        "Genética",
+        "Geriatría",
+        "Gineco-Obstetricia",
+        "Hematología",
+        "Infectología",
+        "Laboratorio",
+        "Medicina Física y Rehabilitación",
+        "Medicina Interna",
+        "Medicina Preventiva",
+        "Nefrología",
+        "Neumología",
+        "Neurología y Neurocirugía",
+        "Nutrición Clínica",
+        "Oftalmología",
+        "Oncología",
+        "Ortopedia",
+        "Otorrinolaringología",
+        "Patología",
+        "Pediatría",
+        "Quirófano Central",
+        "Radiología e Imagenología",
+        "Reumatología",
+        "Salud Mental",
+        "Servicios administrativos al paciente",
+        "Terapia Médica Intensiva",
+        "Trasplante",
+        "Urgencias",
+        "Urología",
+        "Otro"
+      ],
+      "view": {
+        "class": "col col-12 col-sm-6 mb-4",
+        "label": true,
+        "default": "Selecciona una"
+      }
+    },
+    "problem": {
+      "title": "6.- ¿Cuál fue el problema? (puede seleccionar varios)",
+      "type": "array",
+      "required": true,
+      "enum": [
+        "Mala calidad de atención",
+        "Infraestructura y/o otros servicios inadecuados",
+        "Falta de medicamentos",
+        "Falta de personal/médico/especialistas",
+        "Tiempo de espera en recibir atención",
+        "Otro"
+      ],
+      "view": {
+        "class": "col col-12 col-sm-6 mb-4",
+        "label": true,
+        "default": "Selecciona uno"
+      }
+    },
+    "description": {
+      "title": "7.- Cuéntanos los detalles de tu queja",
+      "type": "string",
+      "required": true,
+      "view": {
+        "control": "textarea",
+        "class": "col col-12 col-sm-6 mb-4 mt-2",
+        "label": true
+      }
+    },
+    "evidence": {
+      "title": " ",
+      "type": "object",
+      "view": {
+        "fieldsetClass": "col col-12 col-sm-6",
+        "class": "row"
+      },
+      "properties": {
+        "file": {
+          "title": "8.- Adjunta tu evidencia en foto y/o video aquí",
+          "description": "",
+          "type": "file",
+          "view": {
+            "class": "col col-12 mb-2",
+            "label": true
+          }
+        },
+        "url": {
+          "title": "O escribe el link URL de tu evidencia",
+          "type": "string",
+          "view": {
+            "class": "col col-12 mb-4"
+          }
+        }
+      }
+    },
+    "more": {
+      "title": " ",
+      "type": "object",
+      "view": {
+        "fieldsetClass": "col col-12",
+        "class": "row",
+        "control": "modal",
+        "id": "moreForm",
+        "contentClass": "bg-light text-body"
+      },
+      "properties": {
+        "quality": {
+          "title": "MALA CALIDAD EN LA ATENCIÓN",
+          "type": "object",
+          "properties": {
+            "problem": {
+              "title": "1.- ¿Cuál es el principal motivo por el que vino a atención?",
+              "type": "string",
+              "enum": [
+                "Por referencia del servicio de medicina familiar",
+                "Por accidente",
+                "Por enfermedad previa",
+                "Por revisión o chequeo periódico",
+                "Otra"
+              ],
+              "view": {
+                "class": "col col-12 col-lg-6 mb-4 d-flex align-content-between flex-wrap",
+                "default": "Selecciona una",
+                "wrap": true,
+                "label": true
+              }
+            },
+            "satisfaction": {
+              "title": "2.- ¿Qué tan satisfecho estás con la atención médica que recibiste en la institución de salud a la que acudiste?",
+              "type": "string",
+              "enum": [
+                "Nada satisfecho",
+                "Poco satisfecho",
+                "Satisfecho",
+                "Muy satisfecho",
+                "Totalmente satisfecho"
+              ],
+              "view": {
+                "class": "col col-12 col-lg-6 mb-4 d-flex align-content-between flex-wrap",
+                "label": true,
+                "wrap": true,
+                "control": "stars"
+              }
+            },
+            "motivation": {
+              "title": "3.- Cuál/Cuales es/son tu(s) motivo(s) de insatisfacción",
+              "type": "array",
+              "enum": [
+                "No recibí atención médica inmediata",
+                "No me explicaron mi problema, diagnóstico y/o tratamiento",
+                "Dificultad para acceder a consulta/hospitalización",
+                "Recibí maltrato del personal en el hospital",
+                "Otra"
+              ],
+              "view": {
+                "class": "col col-12 col-lg-9 mb-4 d-flex align-content-between flex-wrap",
+                "label": true,
+                "wrap": true,
+                "info": "Oprime la tecla ctrl para seleccionar o tecla command si usas Mac"
+              }
+            }
+          },
+          "view": {
+            "fieldsetClass": "col col-12",
+            "class": "row",
+            "legendClass": "border-bottom border-secondary"
+          }
+        },
+        "specialized": {
+          "title": "Atención médica especializada",
+          "description": "Solo en casos que usted padezca alguna enfermedad que requiera tratamiento especializado como Cáncer, Leucemias, Infarto agudo al miocardio, Diabetes Mellitus, Enfermedad renal etc...",
+          "type": "object",
+          "properties": {
+            "negation": {
+              "title": "1.- ¿Se te ha negado la atención para este padecimiento?",
+              "type": "string",
+              "enum": [
+                "Nunca",
+                "Alguna vez",
+                "Casi siempre",
+                "Siempre"
+              ],
+              "view": {
+                "class": "col col-12 col-lg-6 mb-4 d-flex align-content-between flex-wrap",
+                "label": true,
+                "wrap": true,
+                "default": "Selecciona"
+              }
+            },
+            "negationDescription": {
+              "title": "2.- ¿Por qué no te brindaron atención a tu padecimiento?",
+              "type": "string",
+              "enum": [
+                "No había servicio",
+                "No había personal ",
+                "Me dijeron que no tenían el tratamiento",
+                "Excesivo tiempo de espera ",
+                "No tenían la infraestructura adecuada. ",
+                "Me enviaron a otra unidad",
+                "Otro"
+              ],
+              "view": {
+                "class": "col col-12 col-lg-6 mb-4 d-flex align-content-between flex-wrap",
+                "label": true,
+                "wrap": true,
+                "default": "Selecciona"
+              }
+            }
+          },
+          "view": {
+            "fieldsetClass": "col col-12",
+            "class": "row"
+          }
+        },
+        "medicalUnit": {
+          "title": "INSTALACIONES INADECUADAS",
+          "type": "object",
+          "properties": {
+            "satisfaction": {
+              "title": "1.- ¿Qué tan satisfecho estás con las instalaciones de la unidad médica que acudiste?",
+              "type": "string",
+              "enum": [
+                "Nada satisfecho",
+                "Poco satisfecho",
+                "Satisfecho",
+                "Muy satisfecho",
+                "Totalmente satisfecho"
+              ],
+              "view": {
+                "class": "col col-12 col-lg-6 mb-4 d-flex align-content-between flex-wrap",
+                "label": true,
+                "wrap": true,
+                "control": "stars"
+              }
+            },
+            "motivation": {
+              "title": "2.- Motivo de instafistacción",
+              "type": "string",
+              "enum": [
+                "Mal servicio en farmacia",
+                "Mal servicio en ambulancias",
+                "Mal servicio de laboratorio",
+                "Limpieza general en la unidad",
+                "Otro"
+              ],
+              "view": {
+                "class": "col col-12 col-lg-6 mb-4 d-flex align-content-between flex-wrap",
+                "label": true,
+                "wrap": true,
+                "default": "Selecciona"
+              }
+            }
+          },
+          "view": {
+            "fieldsetClass": "col col-12",
+            "class": "row",
+            "legendClass": "border-bottom border-secondary"
+          }
+        },
+        "medicines": {
+          "title": "FALTA DE MEDICAMENTOS",
+          "type": "object",
+          "properties": {
+            "filled": {
+              "title": "1.- De las medicinas que le recetaron, ¿cuántos medicamentos le dieron en la farmacia de la unidad?",
+              "type": "string",
+              "enum": [
+                "Todos ",
+                "Algunos ",
+                "Ninguno"
+              ],
+              "view": {
+                "class": "col col-12 col-lg-6 mb-4 d-flex align-content-between flex-wrap",
+                "label": true,
+                "wrap": true,
+                "default": "Selecciona"
+              }
+            },
+            "description": {
+              "title": "2.- ¿Por qué no le surtieron el medicamento?",
+              "type": "string",
+              "enum": [
+                "Porque no tenían el medicamento",
+                "Porque me falta un trámite administrativo.",
+                "Porque falta la autorización del médico especialista/hospital",
+                "Porque la farmacia estaba cerrada",
+                "Otra causa"
+              ],
+              "view": {
+                "class": "col col-12 col-lg-6 mb-4 d-flex align-content-between flex-wrap",
+                "label": true,
+                "wrap": true,
+                "default": "Selecciona"
+              }
+            }
+          },
+          "view": {
+            "fieldsetClass": "col col-12",
+            "class": "row",
+            "legendClass": "border-bottom border-secondary"
+          }
+        },
+        "staff": {
+          "title": "FALTA DE PERSONAL MÉDICO / ESPECIALISTAS",
+          "type": "object",
+          "properties": {
+            "absent": {
+              "title": "1.- ¿Qué personal estuvo ausente?",
+              "type": "string",
+              "enum": [
+                "Médico",
+                "Enfermería",
+                "Limpieza",
+                "Camilleros",
+                "Trabajo social",
+                "Administrativo",
+                "Otra"
+              ],
+              "view": {
+                "class": "col col-12 col-lg-6 mb-4 d-flex align-content-between flex-wrap",
+                "label": true,
+                "wrap": true,
+                "default": "Selecciona"
+              }
+            }
+          },
+          "view": {
+            "fieldsetClass": "col col-12",
+            "class": "row",
+            "legendClass": "border-bottom border-secondary"
+          }
+        },
+        "time": {
+          "title": "TIEMPO DE ESPERA EN RECIBIR ATENCIÓN",
+          "type": "object",
+          "properties": {
+            "satisfaction": {
+              "title": "1.- ¿Cómo calificaría el tiempo de espera en el servicio de esta unidad médica?",
+              "type": "string",
+              "enum": [
+                "Muy rápido ",
+                "Rápido ",
+                "Regular ",
+                "Lento ",
+                "Muy lento"
+              ],
+              "view": {
+                "class": "col col-12 col-lg-6 mb-4 d-flex align-content-between flex-wrap",
+                "label": true,
+                "wrap": true,
+                "default": "Selecciona"
+              }
+            },
+            "description": {
+              "title": "2.- ¿En qué atención fue su insatisfacción del TIEMPO DE ESPERA?",
+              "type": "string",
+              "enum": [
+                "Recibir atención médica/pasar a consulta ",
+                "Obtener citas ",
+                "Programación de cirugía",
+                "Resultados de estudios ",
+                "El servicio en farmacia ",
+                "El servicio en laboratorio",
+                "Trámites",
+                "Otra"
+              ],
+              "view": {
+                "class": "col col-12 col-lg-6 mb-4 d-flex align-content-between flex-wrap",
+                "label": true,
+                "wrap": true,
+                "default": "Selecciona"
+              }
+            },
+            "attribution": {
+              "title": "3.- ¿A qué atribuye esa espera?",
+              "type": "string",
+              "enum": [
+                "Hay mucha gente ",
+                "Lentitud del médico ",
+                "Ausencias del personal/ no están en su lugar ",
+                "Están mal organizados ",
+                "Cambio de turno ",
+                "Los médicos estaban ocupados ",
+                "Otro"
+              ],
+              "view": {
+                "class": "col col-12 col-lg-6 mb-4 d-flex align-content-between flex-wrap",
+                "label": true,
+                "wrap": true,
+                "default": "Selecciona"
+              }
+            }
+          },
+          "view": {
+            "fieldsetClass": "col col-12",
+            "class": "row",
+            "legendClass": "border-bottom border-secondary"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "phone": {
+      "type": "string",
+      "format": "tel"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "address": {
+      "type": "object",
+      "view": {
+        "class": "row",
+        "info": "Ingresa tu código postal y selecciona una de las opciones"
+      },
+      "properties": {
+        "zipcode": {
+          "title": "Código Postal",
+          "type": "string",
+          "required": true,
+          "view": {
+            "class": "col col-12 col-sm-6 col-md-4"
+          }
+        },
+        "state": {
+          "title": "Estado",
+          "type": "string",
+          "required": true,
+          "view": {
+            "class": "col col-12 col-sm-6 col-md-4"
+          }
+        },
+        "city": {
+          "title": "Municipio, Delegación o Ciudad",
+          "type": "string",
+          "required": true,
+          "view": {
+            "class": "col col-12 col-sm-6 col-md-4"
+          }
+        },
+        "neighborhood": {
+          "title": "Colonia",
+          "type": "string",
+          "required": true,
+          "view": {
+            "class": "col col-12 col-sm-6 col-md-4"
+          }
+        },
+        "street": {
+          "title": "Calle",
+          "type": "string",
+          "required": true,
+          "view": {
+            "class": "col col-12 col-sm-6 col-md-4"
+          }
+        },
+        "numberExt": {
+          "title": "No. exterior",
+          "type": "string",
+          "view": {
+            "class": "col col-6 col-sm-3 col-md-2 pr-1"
+          }
+        },
+        "numberInt": {
+          "title": "No. interior",
+          "type": "string",
+          "view": {
+            "class": "col col-6 col-sm-3 col-md-2 pl-1"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+mixin form-field(id, spec, value, disabled)
+  - $type = spec.type
+  - $title = spec.title + (spec.required?' *':'')
+  div(class=spec.view.class)
+    if spec.view.label && spec.type != 'file'
+      - var classLabel = join(' ', [spec.view.classLabel, !spec.view.wrap?"text-nowrap text-ellipsis":'',!spec.view.inline?"d-block":''])
+      label(for=id class=classLabel)= $title
+        if spec.view.info
+          |  
+          i.fa.fa-question-circle.text-dark(
+            data-toggle="tooltip" data-placement="bottom" 
+            title=spec.view.info)
+    case spec.type
+      when 'file'
+        p.label.text-nowrap.text-ellipsis.mb-2= $title
+          if spec.view.info
+            |  
+            i.fa.fa-question-circle.text-info(data-toggle="tooltip" data-placement="bottom" title=spec.view.info)
+          .custom-file
+            input.custom-file-input(id=id name=id type=$type
+              required=spec.required && !value
+              disabled=disabled)
+            label.custom-file-label.text-nowrap.text-ellipsis.text-ellipsis(for=id)= spec.description || 'Selecciona un archivo'
+          if value
+            p
+              a(href=wp_upload_dir()['baseurl'] + value target="_blank")
+                = wp_upload_dir()['baseurl'] + value
+      when 'string'
+      when 'array'
+        - $type = spec.format || 'text'
+        if spec.enum
+          case spec.view.control
+            when 'stars'
+              each opt, i in spec.enum
+                .custom-control.custom-control-inline
+                  label.custom-control-label.custom-star(for=id+'-'+i, title=opt)
+                    input.custom-control-input(id=id+'-'+i name=id type='radio' 
+                      value=opt checked=value==opt disabled=disabled)
+                    span.d-none= opt
+            default
+              select.form-control(id=id name=id+spec.type==='array'?'[]':''
+                required=spec.required
+                multiple=spec.type==='array'
+                disabled=disabled)
+                - $title=(spec.view.default || $title)
+                if spec.type!=='array'
+                  option(value="" disabled=spec.required selected hidden=spec.required)= $title
+                each opt, i in spec.enum
+                  if spec.type==='array'
+                    option(value=opt selected=strpos(value,opt))= opt
+                  else
+                    option(value=opt selected=value===opt)= opt
+        else
+          case spec.view.control
+            when 'textarea'
+              textarea.form-control(id=id name=id type=$type
+                placeholder=!spec.view.label?$title:spec.view.placeholder
+                required=spec.required maxlength=spec.maxLength
+                disabled=disabled rows="3")= value
+            default
+              input.form-control(id=id name=id type=$type value=value
+                placeholder=!spec.view.label?$title:'' 
+                required=spec.required maxlength=spec.maxLength
+                disabled=disabled)
+      when 'boolean'
+        case spec.view.control
+          when 'switch'
+            .custom-control.custom-switch
+              input.custom-control-input(id=id name=id type='checkbox' checked=value
+              required=spec.required disabled=disabled)
+              label.custom-control-label(for=id)= $title
+          when 'radio'
+            .custom-control.custom-radio.custom-control-inline
+              input.custom-control-input(id=id+'-false' name=id type='radio' 
+              value=spec.view.enum[0]
+              checked=value==spec.view.enum[0] disabled=disabled)
+              label.custom-control-label(for=id+'-false')= spec.view.enum[0]
+            .custom-control.custom-radio.custom-control-inline
+              input.custom-control-input(id=id+'-true' name=id type='radio' 
+              value=spec.view.enum[1]
+              checked=value==spec.view.enum[1] disabled=disabled)
+              label.custom-control-label(for=id+'-true')= spec.view.enum[1]
+      when 'divider'
+        | 
+      default
+        input.form-control(id=id name=id type=$type value=value
+          placeholder=!spec.view.label?$title:'' 
+          required=spec.required maxlength=spec.maxLength
+          disabled=disabled)

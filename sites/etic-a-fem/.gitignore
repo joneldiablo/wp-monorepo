@@ -1,0 +1,7 @@
+vendor
+wp-content/uploads
+local-config.php
+.env
+*.log
+.DS_Store
+wp-config.php

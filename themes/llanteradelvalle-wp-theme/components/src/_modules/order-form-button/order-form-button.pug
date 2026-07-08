@@ -1,0 +1,38 @@
+include ../product-form/product-form
+include ../contact-form/contact-form
+include ../credit-card/credit-card
+
+mixin order-form(spec)
+  - spec = spec || {}
+  - spec.__class = spec.__class || ''
+
+  .order-form-button(class=spec.__class)&attributes(attributes)
+    .card
+      .card-body
+        // name=quantity
+        +product-form
+    br
+    //+credit-card
+    //-
+    //- * arreglar pestañas, navegar con código, asegurarse que funcionen bien en deploy
+    //- * arreglar espacio de pestañas de tipo de servicio
+    //- * agregar formulario de horario preferente (mañana tarde noche, atención entre 10am y 6pm), pestañas de montaje
+    //- * a domicilio aplican restricciones
+    //- * facturar-> checkbox
+    //- * total
+    //- * indicar forma de pago, que jorge genere ligas de cobro y se las mande a sus clientes.
+    //- * mandar correo cuando se cree una solicitud
+    //- * ingresar dirección de facturación, colocar *** no contamos con ventas...
+    //- =========================
+    //- [1:36 p. m., 30/12/2019] Jorge (prima Alhe): Dirección Pachuca. Blvrd Everardo Márquez 124, Ex-hacienda de Coscotitlán, Ex Hacienda de Coscotitlán, 42080 Hidalgo, Hgo.
+    //- [1:36 p. m., 30/12/2019] Jorge (prima Alhe): Tulancingo
+    //- [1:38 p. m., 30/12/2019] Jorge (prima Alhe): Blvd. Emiliano Zapata y Av. 21 de Marzo s/n. Col. Insurgentes.
+    //- Cp. 43630. Tulancingo, Hgo.
+    //- [1:39 p. m., 30/12/2019] Jorge (prima Alhe): Carr.Mex-Tuxpan KM139, San Francisco, 43647 Tulancingo de Bravo, Hgo.
+    //- ========================
+    //- Catedral de San Basilio 137.
+    //- Rinconada de Santa Fe
+    //- CP. 42186
+    //- Mineral de la Reforma, Hgo. Mx.
+    //- * No contamos con ventas en
+    //- esta dirección.)

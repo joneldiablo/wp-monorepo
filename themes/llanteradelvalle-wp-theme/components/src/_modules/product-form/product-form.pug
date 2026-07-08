@@ -1,0 +1,32 @@
+include ../delivery/delivery
+
+mixin product-form(spec)
+  - spec = spec || {}
+  - spec.__class = spec.__class || ''
+
+  .product-form(class=spec.__class)&attributes(attributes)
+    fieldset
+      table.table.table-responsive
+        thead
+          tr.text-center
+            th.small Cantidad
+            th.small Monto
+        tbody
+          tr
+            td
+              input.form-control(id="quantity" name="quantity" type="number" value="1" min="1")
+            td
+              .input-group
+                .input-group-prepend
+                  span.input-group-text.bg-white.border-0 $
+                output.form-control-plaintext(id="amount" name="product_amount" for="quantity product_price") 100
+    fieldset.row.no-gutters
+      .col.col-12
+        +delivery-form
+    .row.no-gutters.justify-content-end
+      label.col.col-4.col-sm-2.col-md-1.text-right.py-2.mb-0.border-bottom(for="delivery_subtotal") Total
+      .col.col-6.col-sm-4.col-md-3.border-bottom
+        .input-group
+          .input-group-prepend
+            span.input-group-text.bg-white.border-0 $
+          output#delivery_subtotal.form-control-plaintext

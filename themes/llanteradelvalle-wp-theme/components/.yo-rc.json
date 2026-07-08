@@ -1,0 +1,12 @@
+{
+  "generator-yeogurt": {
+    "config": {
+      "projectName": "llv",
+      "htmlOption": "pug",
+      "cssOption": "sass",
+      "sassSyntax": "scss",
+      "testFramework": "none"
+    },
+    "version": "3.0.1"
+  }
+}

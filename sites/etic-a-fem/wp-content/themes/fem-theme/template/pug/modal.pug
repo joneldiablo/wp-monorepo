@@ -1,0 +1,13 @@
+mixin modal(spec)
+  .modal.fade(id=spec.id+'_modal' tabindex='-1' role='dialog' aria-hidden='true')
+    - var size=spec.size?'modal-'+spec.size:'';
+    .modal-dialog(role='document' class=size)
+      .modal-content(class=spec.contentClass)
+        button.close.m-2.px-2.border.rounded-circle(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') ×
+        if spec.header
+          .modal-header!=spec.header
+        .modal-body(class=spec.bodyClass)
+          block
+        if spec.footer
+          .modal-footer!=spec.footer

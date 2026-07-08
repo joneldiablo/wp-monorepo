@@ -1,0 +1,18 @@
+{
+  "name": "Oscuro y oro",
+  "slug": "black-gold",
+  "base": "materia",
+  "style": "",
+  "variables": {
+    "white": "#fff",
+    "gray-300": "#dee2e6",
+    "gray-900": "#282828",
+    "black": "#000",
+    "dark": "$black",
+    "primary": "#BFA86A",
+    "body-bg": "$gray-900",
+    "body-color": "$white",
+    "input-bg": "$white",
+    "input-disabled-bg": "$gray-300"
+  }
+}

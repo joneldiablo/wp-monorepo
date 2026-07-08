@@ -1,0 +1,24 @@
+@mixin custom-star {
+  color: $white;
+  content: "\f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 1rem;
+  line-height: 1;
+  background: none;
+  border: none;
+}
+.custom-control-input.custom-star ~ .custom-control-label:before,
+.custom-control-label.custom-star:before {
+  @include custom-star;
+}
+
+.custom-star:checked,
+.custom-star.active {
+  &:before {
+    color: $yellow;
+  }
+  & ~ .custom-control-label:before {
+    color: $yellow;
+  }
+}

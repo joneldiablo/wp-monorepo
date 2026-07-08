@@ -1,0 +1,152 @@
+/*
+Theme Name:     Llanteradelvalle
+Theme URI:
+Description:    Chromium child theme.
+Author:         joneldiablo
+Author URI:
+Template:       chromium
+Version:        0.1.0
+*/
+
+@font-face {
+  font-family: "minnesota-vikings";
+  src: url("./assets/fonts/nfl_minnesota_vikings[1].ttf") format("truetype");
+}
+
+.minnesota-vikings {
+  font-family: "minnesota-vikings";
+}
+
+.home header.site-header {
+  position: fixed;
+}
+
+header.site-header {
+  z-index: 1000;
+  height: auto;
+  padding: 1.5rem;
+  margin: 0;
+}
+
+.header-group {
+  padding: 0 !important;
+}
+
+.site-title {
+  font-family: "minnesota-vikings";
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+.site-title a:hover {
+  color: white;
+}
+
+.site-description {
+  font-weight: normal;
+}
+
+.chromium-look-tires.home .site-branding:before {
+  content: none;
+}
+
+.chromium-look-tires:not(.home) .site-header {
+  background-color: #fcd117;
+  /*amarillo*/
+}
+
+.chromium-look-tires:not(.home) .site-header a:hover {
+  color: #fdb819;
+  /*naranja*/
+}
+
+#mega-menu-wrap-logo-group-nav {
+  background: transparent !important;
+}
+
+#mega-menu-wrap-logo-group-nav #mega-menu-logo-group-nav {
+  text-align: right;
+}
+
+.pciwgas-column,
+.pciwgas-columns {
+  width: 50%;
+}
+
+#elementor-tab-content-2112 {
+  max-height: 335px;
+  overflow-y: auto;
+}
+
+.woocommerce-breadcrumb {
+  margin-top: 10px;
+}
+
+.single_add_to_cart_button {
+  max-width: initial !important;
+  display: block;
+  margin: auto;
+}
+
+ul.payment_methods .payment_box input {
+  display: block;
+  width: 100%;
+  position: initial;
+  background: white;
+  height: initial;
+  padding: 0 5px;
+}
+
+#openpay_cc {
+  display: none;
+}
+
+#card-points-dialog {
+  display: none;
+}
+
+.woocommerce-checkout .variation {
+  margin-top: 40px !important;
+}
+
+.widget.widget_tz_shopping_cart .heading {
+  position: relative;
+}
+
+.berocket_aapf_widget input[type="radio"] {
+  height: initial;
+}
+
+.star-rating,
+.reviews-wrapper,
+.add_to_cart_button.ajax_add_to_cart {
+  display: none !important;
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+  #mega-menu-wrap-logo-group-nav #mega-menu-logo-group-nav {
+    text-align: center;
+  }
+  .elementor.elementor-701 {
+    margin-top: 188px;
+  }
+}
+
+@media (max-width: 600px) {
+  .home header.site-header {
+    position: initial;
+  }
+  .elementor-701 .elementor-element.elementor-element-b436668:not(.elementor-motion-effects-element-type-background) {
+    background-size: cover;
+  }
+}
+
+@media (max-height: 768px) and (min-width: 768px) {
+  .elementor-element.elementor-element-7e0f309 {
+    margin-top: 150px;
+  }
+}

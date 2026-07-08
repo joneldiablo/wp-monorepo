@@ -1,0 +1,12 @@
+{
+  "name": "llantera-del-valle",
+  "version": "0.1.0",
+  "author": "joneldiablo",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "start": "npm run serve --prefix components",
+    "zip": "rm -rf ../llv.zip && zip -r ../llv.zip . -x './components/*' -x './.git/*' && zip -r ../llv.zip . -i './components/build/*'",
+    "build": "npm run build --prefix components && npm run zip"
+  }
+}

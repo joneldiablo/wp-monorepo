@@ -1,0 +1,38 @@
+mixin address-form(spec)
+  - spec = spec || {}
+  - spec.__class = spec.__class || ''
+
+  fieldset.address(class=spec.__class)&attributes(attributes)
+    legend.h6 Dirección
+    .row
+      .col.col-12.col-md-8
+        .form-group
+          label.sr-only(for="street") Calle y número
+          input.form-control(id="street" name="address[street]" type="text" placeholder="Calle y número")
+      .col.col-12.col-sm-6.col-md-4
+        .form-group
+          label.sr-only(for="cp") Código postal
+          input.form-control(id="cp" name="address[cp]" type="list" placeholder="C.P." list="cps" maxlength="5")
+          small.cp-error.text-danger
+          datalist(id="cps")
+            option(value="42***")
+      .col.col-12.col-sm-6.col-md-4
+        .form-group
+          label.sr-only(for="neighborhood") Colonia
+          input.form-control(id="neighborhood" name="address[neighborhood]" type="list" placeholder="Colonia" list="neighborhoods")
+          datalist(id="neighborhoods")
+            option(value="av de las lomas")
+      .col.col-12.col-sm-6.col-md-4
+        .form-group
+          label.sr-only(for="city") Municipio
+          input.form-control(id="city" name="address[city]" type="text" placeholder="Municipio")
+      .col.col-12.col-sm-6.col-md-4
+        .form-group
+          label.sr-only(for="state") Estado
+          input.form-control(id="state" name="address[state]" type="text" placeholder="Estado")
+      .col.col-12
+        .form-group
+          label.sr-only(for="referDescription") Referencias
+          input.form-control(id="referDescription" name="address[refers]" type="text" placeholder="Referencias")
+
+

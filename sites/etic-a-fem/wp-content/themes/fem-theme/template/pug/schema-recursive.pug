@@ -1,0 +1,41 @@
+
+mixin schema-recursive(objInit, data, allDisabled = false)
+  - const defs = objInit.definitions;
+  mixin recursive(obj, parentName)
+    each property, name in obj.properties
+      - var newName = join('_', array_filter([parentName,name]))
+      if property.type==='object'
+        mixin fieldset
+          fieldset(class=[name, property.view.fieldsetClass])
+            legend(class=[name, property.view.legendClass])=property.title || name
+              if property.view.info
+                |  
+                i.fa.fa-question-circle.text-info(
+                  data-toggle="tooltip" 
+                  data-placement="bottom" 
+                  title=property.view.info)
+            if property.description
+              p= property.description
+            .form-group(class=property.view.class)
+              +recursive(property, name)
+        case property.view.control
+          when 'modal'
+            +modal({id:property.view.id, size:'lg', contentClass:property.view.contentClass, bodyClass:''})
+              +fieldset
+          default
+            +fieldset
+
+      else
+        if property['$ref']
+          - var def = property['$ref'].replace('#/definitions/','');
+          - property['$ref'] = false;
+          if defs[def].type==='object'
+            - var final = {properties:{}};
+            - final.properties[newName]=array_merge([],property,defs[def]));
+            +recursive(final, newName)
+          else
+            - property=array_merge([],property,defs[def]));
+            +form-field(newName, property, data[newName], allDisabled)
+        else
+          +form-field(newName, property, data[newName], allDisabled)
+  +recursive(objInit)

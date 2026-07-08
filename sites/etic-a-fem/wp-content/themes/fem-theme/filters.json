@@ -1,0 +1,90 @@
+{
+  "type": "object",
+  "properties": {
+    "search": {
+      "title": "Escribe tu busqueda aquí.",
+      "type": "string",
+      "view": {
+        "class": "col col-12 col-sm-6 mb-4"
+      }
+    },
+    "divider": {
+      "type": "divider",
+      "view": {
+        "class": "w-100"
+      }
+    },
+    "problem": {
+      "title": "Problema",
+      "type": "string",
+      "enum": [
+        "Mala calidad de atención",
+        "Instalaciones inadecuadas",
+        "Falta de medicamentos",
+        "Falta de personal/médico/especialistas",
+        "Tiempo de espera en recibir atención",
+        "Otro"
+      ],
+      "view": {
+        "class": "col col-12 col-sm-6 col-lg-4 mb-4",
+        "default": "Tipo de problema..."
+      }
+    },
+    "service": {
+      "title": "Servicio",
+      "type": "string",
+      "enum": [
+        "Alergia e Inmunología",
+        "Anestesiología",
+        "Audiología y Foniatría",
+        "Banco de Sangre",
+        "Cámara hiperbárica",
+        "Cardiología",
+        "Cirugía Experimental",
+        "Cirugía General",
+        "Cirugía Plástica",
+        "Cirugía Vascular y Angiología",
+        "Clínica del Dolor",
+        "Consulta externa",
+        "Dermatología",
+        "Endocrinología",
+        "Estomatología",
+        "Farmacología Clínica",
+        "Gastroenterología",
+        "Genética",
+        "Geriatría",
+        "Gineco-Obstetricia",
+        "Hematología",
+        "Infectología",
+        "Laboratorio",
+        "Medicina Física y Rehabilitación",
+        "Medicina Interna",
+        "Medicina Preventiva",
+        "Nefrología",
+        "Neumología",
+        "Neurología y Neurocirugía",
+        "Nutrición Clínica",
+        "Oftalmología",
+        "Oncología",
+        "Ortopedia",
+        "Otorrinolaringología",
+        "Patología",
+        "Pediatría",
+        "Quirófano Central",
+        "Radiología e Imagenología",
+        "Reumatología",
+        "Salud Mental",
+        "Servicios administrativos al paciente",
+        "Terapia Médica Intensiva",
+        "Trasplante",
+        "Urgencias",
+        "Urología",
+        "Otro"
+      ],
+      "view": {
+        "class": "col col-12 col-sm-6 col-lg-4 mb-4",
+        "default": "Tipo de servicio..."
+      }
+    }
+  }
+}

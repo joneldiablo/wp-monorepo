@@ -1,0 +1,24 @@
+// delivery styles
+.delivery-form {
+  .nav-link {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .custom-control-input:checked ~ .custom-control-label:before {
+    border-color: $orange;
+    background-color: $orange;
+  }
+  .custom-control-label {
+    &:before,
+    &:after {
+      top: 1px;
+    }
+  }
+  .extra-charge {
+    vertical-align: text-bottom;
+  }
+  datalist {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+}

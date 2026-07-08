@@ -1,0 +1,480 @@
+{
+  "title": "Registro de Agentes",
+  "type": "object",
+  "properties": {
+    "documents": {
+      "title": "Documentos",
+      "description": "Adjunta los siguientes documentos:",
+      "type": "object",
+      "view": {
+        "class": "row"
+      },
+      "properties": {
+        "agentId": {
+          "title": "Cédula de agente (frente)",
+          "description": "Adjuntar...",
+          "type": "file",
+          "required": true,
+          "view": {
+            "class": "col col-12 col-sm-6 col-md-4 mb-4"
+          }
+        },
+        "agentIdBack": {
+          "title": "Cédula de agente (vuelta)",
+          "description": "Adjuntar...",
+          "type": "file",
+          "required": true,
+          "view": {
+            "class": "col col-12 col-sm-6 col-md-4 mb-4"
+          }
+        },
+        "account": {
+          "title": "Primera hoja de tu Estado de Cuenta",
+          "description": "Adjuntar...",
+          "type": "file",
+          "required": true,
+          "view": {
+            "class": "col col-12 col-sm-6 col-md-4 mb-4",
+            "info": "Se requiere para ver tu número de cuenta y cuenta CLABE (recuerda ocultar tus movimientos financieros)."
+          }
+        }
+      }
+    },
+    "agreement": {
+      "title": "Contrato",
+      "description": "Llena los siguientes campos para completar tu contrato:",
+      "type": "object",
+      "properties": {
+        "fullname": {
+          "title": "Nombre completo",
+          "type": "object",
+          "view": {
+            "class": "row"
+          },
+          "properties": {
+            "name": {
+              "title": "Nombre(s)",
+              "type": "string",
+              "required": true,
+              "view": {
+                "class": "col col-12 col-sm-6 col-md-4 mb-4"
+              }
+            },
+            "firstSurname": {
+              "title": "Apellido Paterno",
+              "type": "string",
+              "required": true,
+              "view": {
+                "class": "col col-12 col-sm-6 col-md-4 mb-4"
+              }
+            },
+            "secondSurname": {
+              "title": "Apellido Materno",
+              "type": "string",
+              "required": true,
+              "view": {
+                "class": "col col-12 col-sm-6 col-md-4 mb-4"
+              }
+            }
+          }
+        },
+        "contact": {
+          "title": "Contacto",
+          "type": "object",
+          "view": {
+            "class": "row"
+          },
+          "properties": {
+            "phoneOffice": {
+              "title": "Teléfono de Oficina",
+              "$ref": "#/definitions/phone",
+              "required": true,
+              "view": {
+                "class": "col col-12 col-sm-6 col-md-4 mb-4"
+              }
+            },
+            "phoneMobile": {
+              "title": "Teléfono Celular",
+              "$ref": "#/definitions/phone",
+              "required": true,
+              "view": {
+                "class": "col col-12 col-sm-6 col-md-4 mb-4"
+              }
+            },
+            "phonePersonal": {
+              "title": "Teléfono Partcular",
+              "$ref": "#/definitions/phone",
+              "view": {
+                "class": "col col-12 col-sm-6 col-md-4 mb-4"
+              }
+            },
+            "email": {
+              "title": "Correo electrónico",
+              "$ref": "#/definitions/email",
+              "required": true,
+              "view": {
+                "class": "col col-12 col-sm-6 col-md-4 mb-4"
+              }
+            }
+          }
+        },
+        "address": {
+          "title": "Dirección",
+          "$ref": "#/definitions/address"
+        },
+        "general": {
+          "title": "Datos generales",
+          "type": "object",
+          "view": {
+            "class": "row"
+          },
+          "properties": {
+            "nationality": {
+              "title": "Nacionalidad",
+              "type": "string",
+              "required": true,
+              "enum": [
+                "Afgana",
+                "Albanesa",
+                "Alemana",
+                "Americana",
+                "Andorrana",
+                "Angolesa",
+                "Arabe",
+                "Argeliana",
+                "Argentina",
+                "Australiana",
+                "Austriaca",
+                "Bahameña",
+                "Belga",
+                "Beliceña",
+                "Bhutanesa",
+                "Birmana",
+                "Boliviana",
+                "Botswanesa",
+                "Brasileña",
+                "Britanica",
+                "Britanica",
+                "Bulgara",
+                "Burkina Faso",
+                "Burundesa",
+                "Camboyana",
+                "Camerunesa",
+                "Canadiense",
+                "Centro Africana",
+                "Chadiana",
+                "Checoslovaca",
+                "Chilena",
+                "China",
+                "Chipriota",
+                "Colombiana",
+                "Comorense",
+                "Congolesa",
+                "Costarricense",
+                "Cubana",
+                "Danesa",
+                "De Bahrein",
+                "De Barbados",
+                "De Bennin",
+                "De Cabo Verde",
+                "De Djibouti",
+                "De Santo Tome",
+                "De Seychelles",
+                "De Zimbawi",
+                "Del Qatar",
+                "Del Sahara",
+                "Dominica",
+                "Dominicana",
+                "Egipcia",
+                "Eslovaca",
+                "Eslovaquia",
+                "Eslovenia",
+                "Española",
+                "Estadounidense",
+                "Estonia",
+                "Etiope",
+                "Fijiana",
+                "Filipina",
+                "Finlandesa",
+                "Francesa",
+                "Gabonesa",
+                "Gambiana",
+                "Ghanata",
+                "Granadina",
+                "Griega",
+                "Guatemalteca",
+                "Guinea Ecuatoriana",
+                "Guinea",
+                "Guinea",
+                "Guyanesa",
+                "Haitiana",
+                "Hindu",
+                "Holandesa",
+                "Hondureña",
+                "Hungara",
+                "Indonesa",
+                "Irani",
+                "Iraqui",
+                "Irlandesa",
+                "Islandesa",
+                "Israeli",
+                "Italiana",
+                "Jamaiquina",
+                "Japonesa",
+                "Jordana",
+                "Keniana",
+                "Kirguistan",
+                "Kuwaiti",
+                "Laosiana",
+                "Lesothense",
+                "Libanesa",
+                "Liberiana",
+                "Libia",
+                "Liechtenstense",
+                "Lituania",
+                "Luxemburguesa",
+                "Macedonia",
+                "Malasia",
+                "Malawiana",
+                "Maldiva",
+                "Maliense",
+                "Maltesa",
+                "Marfileña",
+                "Marroqui",
+                "Mauriciana",
+                "Mauritana",
+                "Mexicana",
+                "Micronecia",
+                "Moldovia, Republica De",
+                "Monegasca",
+                "Mongolesa",
+                "Mozambiqueña",
+                "Namibiana",
+                "Nauruana",
+                "Nepalesa",
+                "Nicaraguense",
+                "Nigeriana",
+                "Nigerina",
+                "Norcoreana",
+                "Noruega",
+                "Norvietnamita",
+                "Omanesa",
+                "Pakistani",
+                "Panameña",
+                "Papuense",
+                "Paraguaya",
+                "Peruana",
+                "Portuguesa",
+                "Puertorriqueña",
+                "Reino Unido",
+                "Reino Unido(Brit. Del Ext.)",
+                "Reino Unido(C. Brit. Del Ext.)",
+                "Reino Unido(Depen. Tet. Brit.)",
+                "Rumana",
+                "Rwandesa",
+                "Salomonesaa",
+                "Salvadoreña",
+                "Samoana",
+                "San Marinense",
+                "Santa Luciense",
+                "Senegalesa",
+                "Sierra Leonesa",
+                "Singaporense",
+                "Siria",
+                "Somali",
+                "Sovietica Bielorrusa",
+                "Sovietica Ucraniana",
+                "Sudafricana",
+                "Sudanesa",
+                "Sudcoreana",
+                "Sueca",
+                "Suiza",
+                "Surinamense",
+                "Swazi",
+                "Tailandesa",
+                "Taiwanesa",
+                "Tanzaniana",
+                "Togolesa",
+                "Trinitaria",
+                "Tunecina",
+                "Turca",
+                "Ugandesa",
+                "Uruguaya",
+                "Vaticana",
+                "Venezolana",
+                "Yemeni",
+                "Yugoslava",
+                "Zairana",
+                "Zambiana"
+              ],
+              "view": {
+                "default": "Nacionalidad",
+                "class": "col col-12 col-sm-6 col-lg-4 mb-4"
+              }
+            },
+            "maritalStatus": {
+              "title": "Estado Civil",
+              "type": "string",
+              "required": true,
+              "enum": [
+                "Soltero(a)",
+                "Casado(a)",
+                "Separado(a)",
+                "Divorciado(a)",
+                "Unión Libre",
+                "Viudo(a)"
+              ],
+              "view": {
+                "default": "Estado Civil",
+                "class": "col col-12 col-sm-6 col-lg-4 mb-4"
+              }
+            },
+            "birthdate": {
+              "title": "Fecha de nacimiento",
+              "type": "string",
+              "format": "date-bs",
+              "required": true,
+              "view": {
+                "class": "col col-12 col-sm-6 col-lg-4 mb-4"
+              }
+            },
+            "rfc": {
+              "title": "RFC",
+              "type": "string",
+              "format": "rfc",
+              "required": true,
+              "view": {
+                "class": "col col-12 col-sm-6 col-lg-4 mb-4"
+              }
+            },
+            "curp": {
+              "title": "CURP",
+              "type": "string",
+              "format": "curp",
+              "required": true,
+              "view": {
+                "class": "col col-12 col-sm-6 col-lg-4 mb-4"
+              }
+            },
+            "agentId": {
+              "title": "Cédula u oficio expedido por la CNSF",
+              "type": "string",
+              "format": "cnsf",
+              "required": true,
+              "maxLength": 20,
+              "view": {
+                "class": "col col-12 col-sm-6 col-lg-4 mb-4"
+              }
+            }
+          }
+        },
+        "operations": {
+          "title": " ",
+          "type": "object",
+          "view": {
+            "class": "row"
+          },
+          "properties": {
+            "list": {
+              "title": "Operaciones y Ramos autorizados para intermediar del agente",
+              "type": "array",
+              "format": "csv",
+              "required": true,
+              "enum": [
+                "A - Riesgos Personales y Familiares de Seguros de Personas y Daños",
+                "A1 - Riesgos Personales y Familiares de Seguros de Personas",
+                "A2 - Riesgos Personales y Familiares de Seguros de Daños",
+                "B - Riesgos Empresariales de Seguros de Personas y Daños",
+                "B1 - Riesgos Empresariales de Seguros de Personas",
+                "B2 - Riesgos Empresariales de Seguros de Daños",
+                "C - Riesgos Especiales",
+                "D - Agrícola y de Animales",
+                "E - Seguro de Crédito",
+                "G - Especiales",
+                "H - Seguro de pensiones derivadas de las leyes de seguridad soc."
+              ],
+              "view": {
+                "class": "col col-12",
+                "label": true,
+                "info": "Oprime la tecla \"ctrl\" o \"cmd\" y da click en las opciones para marcar varias"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "phone": {
+      "type": "string",
+      "format": "tel"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "address": {
+      "type": "object",
+      "view": {
+        "class": "row",
+        "info": "Ingresa tu código postal y selecciona una de las opciones"
+      },
+      "properties": {
+        "zipcode": {
+          "title": "Código Postal",
+          "type": "string",
+          "required": true,
+          "view": {
+            "class": "col col-12 col-sm-6 col-md-4 mb-4"
+          }
+        },
+        "state": {
+          "title": "Estado",
+          "type": "string",
+          "required": true,
+          "view": {
+            "class": "col col-12 col-sm-6 col-md-4 mb-4"
+          }
+        },
+        "city": {
+          "title": "Municipio, Delegación o Ciudad",
+          "type": "string",
+          "required": true,
+          "view": {
+            "class": "col col-12 col-sm-6 col-md-4 mb-4"
+          }
+        },
+        "neighborhood": {
+          "title": "Colonia",
+          "type": "string",
+          "required": true,
+          "view": {
+            "class": "col col-12 col-sm-6 col-md-4 mb-4"
+          }
+        },
+        "street": {
+          "title": "Calle",
+          "type": "string",
+          "required": true,
+          "view": {
+            "class": "col col-12 col-sm-6 col-md-4 mb-4"
+          }
+        },
+        "numberExt": {
+          "title": "No. exterior",
+          "type": "string",
+          "view": {
+            "class": "col col-6 col-sm-3 col-md-2 pr-1"
+          }
+        },
+        "numberInt": {
+          "title": "No. interior",
+          "type": "string",
+          "view": {
+            "class": "col col-6 col-sm-3 col-md-2 pl-1"
+          }
+        }
+      }
+    }
+  }
+}

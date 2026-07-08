@@ -1,0 +1,79 @@
+include ../address-form/address-form
+
+mixin delivery-form(spec)
+  - spec = spec || {}
+  - spec.__class = spec.__class || ''
+
+  fieldset.delivery-form(class=spec.__class)&attributes(attributes)
+    legend.sr-only Delivery
+    .row.no-gutters
+      .col.col-12.col-md-4.col-lg-12
+        ul.nav.row.no-gutters.nav-pills(role='tablist' aria-orientation='vertical')
+          li.nav-link.col.col-12.col-sm-4.col-md-12.col-lg-4.active.border
+            .custom-control.custom-radio
+              input#workshop_installation.custom-control-input(data-target="#wip" type="radio" name="product_delivery" value="workshop" checked)
+              label.small.custom-control-label(for="workshop_installation") Montaje en taller
+          li.nav-link.col.col-12.col-sm-4.col-md-12.col-lg-4
+            .custom-control.custom-radio
+              input#home_installation.custom-control-input(data-target="#hip" type="radio" name="product_delivery" value="home")
+              label.small.custom-control-label(for="home_installation") Montaje a domicilio
+          li.nav-link.col.col-12.col-sm-4.col-md-12.col-lg-4
+            .custom-control.custom-radio
+              input#shipping.custom-control-input(data-target="#sp" type="radio" name="product_delivery" value="shipping")
+              label.small.custom-control-label(for="shipping") Envío a domicilio
+      .col.col-12.col-md-8.col-lg-12
+        .tab-content.border.p-2
+          #wip.tab-pane.fade.show.active(role='tabpanel')
+            .form-group.row.no-gutters
+              label.col.col-12.col-sm-4(for="d_workshop") Taller
+              select.form-control.col.col-12.col-sm-8(id="d_workshop" required=true)
+              .col.col-12
+                p.mt-2.text-right
+                  span Costo de servicio:
+                    | &nbsp;
+                    b.priceInst
+                p.mt-2.text-right
+                  span.border-bottom Costo por unidad:
+                    | &nbsp;
+                    b.pricePerUnit
+                p.mt-2.text-right
+                  span Instalación:
+                    | &nbsp;
+                    b.totalTaller
+                p.mt-2.text-right
+                  a.workshop-address-link(href="https://www.google.com.mx/maps/search/" target="_blank")
+          #hip.tab-pane.fade(role='tabpanel')
+            p Costo de traslado &nbsp;
+              b#homePrice $ 100.00
+            p Costo por unidad &nbsp;
+              b x
+                span#quantityHome 2 &nbsp;
+                output#homePriceQuantity $ 100.00
+            fieldset.vehicle
+              legend.h6 Datos del vehículo
+              .row
+                .col.col-12.col-sm-6.col-lg-12
+                  .form-group
+                    label.sr-only(for="vBrand") Marca
+                    input.form-control(id="vBrand" name="vehicle[brand]" type="text" placeholder="Marca (ej. Volkswagen)")
+                .col.col-12.col-sm-6
+                  .form-group
+                    label.sr-only(for="vSerie") Serie
+                    input.form-control(id="vSerie" name="vehicle[serie]" type="text" placeholder="Serie (ej. Jetta)")
+                .col.col-12.col-sm-6.col-md-4.col-lg-6
+                  .form-group
+                    label.sr-only(for="vModel") Modelo
+                    input.form-control(id="vModel" name="vehicle[model]" type="text" placeholder="Modelo (ej. 2012)")
+                .col.col-12.col-sm-6.col-md-4.col-lg-6
+                  .form-group
+                    label.sr-only(for="vColor") Color
+                    input.form-control(id="vColor" name="vehicle[color]" type="text" placeholder="Color")
+                .col.col-12.col-sm-6.col-md-4.col-lg-6
+                  .form-group
+                    label.sr-only(for="vId") Placas
+                    input.form-control(id="vId" name="vehicle[id]" type="text" placeholder="Placas")
+          #sp.tab-pane.fade(role='tabpanel')
+            |
+          .hidden.d-none
+            +address-form
+            input(type="hidden" name="addon")

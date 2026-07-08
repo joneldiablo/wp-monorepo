@@ -1,0 +1,45 @@
+// credit-card styles
+.credit-card {
+  max-width: 475px;
+  margin: auto;
+  margin-bottom: 20px;
+  .card {
+    overflow: hidden;
+    .card-header {
+      border-bottom: none;
+    }
+    .card-footer {
+      border-top: none;
+    }
+  }
+  .chip-card {
+    width: 60px;
+    height: 50px;
+    background-color: #ffc951;
+    border-radius: 8px;
+  }
+  .date .col,
+  .number .col {
+    & input,
+    & option,
+    & select {
+      text-align: center;
+    }
+    &:not(:last-child):after {
+      content: "-";
+      float: right;
+      position: absolute;
+      right: -2px;
+      bottom: 4px;
+    }
+    .form-control {
+      padding: 0.25rem 0;
+    }
+    @media (max-width: 576px) {
+      padding: 0 5px;
+    }
+  }
+  .date .col:not(:last-child):after {
+    content: "/";
+  }
+}

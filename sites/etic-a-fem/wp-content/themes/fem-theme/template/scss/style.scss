@@ -1,0 +1,290 @@
+/*
+Theme Name:     Fem-theme
+Theme URI:      
+Description:    Wp-bootstrap-starter child theme.
+Author:         Etic-a joneldiablo
+Author URI:     
+Template:       wp-bootstrap-starter
+Version:        0.1.0
+*/
+
+@font-face {
+  font-family: "heading";
+  src: url("./assets/fonts/heading/Heading-Pro-Bold-trial.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "myriad";
+  src: url("./assets/fonts/Myriad Pro/MyriadPro-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "helvetica";
+  src: url("./assets/fonts/HelveticaNeue/HelveticaNeue-Roman.otf") format("opentype");
+}
+
+$font-family-base: myriad;
+$headings-font-family: heading;
+$input-btn-font-family: helvetica;
+//$font-size-base: 1.2rem;
+
+$blue: #00a2e3;
+$blueFacebook: #3b5998;
+$aquaTwitter: #00acee;
+$dark: #0057a3;
+$yellow: #ffed00;
+$white: #ffffff;
+$gray-100: #dae3db;
+$gray-600: #9d9d9c;
+$red: #e20613;
+
+$body-color: $gray-600;
+$info: $yellow;
+
+$enable-rounded: false;
+
+$navbar-dark-color: $white;
+$navbar-dark-hover-color: rgba($white, 0.5);
+$navbar-dark-active-color: $yellow;
+
+$custom-control-indicator-checked-border-color: $white;
+
+$input-border-radius: 0;
+$custom-file-border-radius: 0;
+$custom-file-text: (
+  es: "Buscar"
+);
+
+$theme-colors: (
+  "red": $red
+);
+
+@import "../node_modules/compass-mixins/lib/compass";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+@import "./fields";
+
+html {
+  overflow-x: hidden;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.hover-point:hover {
+  cursor: pointer;
+}
+
+.bootstrap-autocomplete.dropdown-menu {
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.pmb-0 {
+  p {
+    margin-bottom: 0;
+  }
+}
+
+// navbar
+nav.navbar {
+  display: block;
+  padding: 0;
+  .nav-item {
+    position: relative;
+    text-align: center;
+  }
+  .navbar-toggler {
+    right: 10px;
+    position: absolute;
+    transform: translateY(80%);
+  }
+  .navbar-brand {
+    position: relative;
+    z-index: 1;
+    // Needs latest Compass, add '@import "compass"' to your scss
+    // Permalink - use to edit and share this gradient:
+    // https://colorzilla.com/gradient-editor/$gray100+0,ffffff+40,ffffff+60,dae3db+100
+    background-color: $white; // Old browsers
+    @include filter-gradient($gray-100, $gray-100, horizontal); // IE6-9
+    @include background-image(linear-gradient(left, $gray-100 0%, $white 35%, $white 65%, $gray-100 100%));
+  }
+  @include media-breakpoint-up(md) {
+    .nav-item + .nav-item {
+      &:before {
+        content: "|";
+        color: $white;
+        padding: 0.5rem 0;
+        position: absolute;
+        left: -1px;
+      }
+    }
+  }
+}
+
+.nav-item {
+  font-family: $headings-font-family;
+}
+
+.nav.nav-dark a {
+  color: $white;
+}
+
+//the variable not working.... so patch
+.custom-file-label {
+  border-radius: 0;
+}
+
+#form-container {
+  background-image: url("./assets/images/Fondo-Escaparate-Home.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.bg-light {
+  background-color: $gray-100 !important;
+}
+
+.btn-outline-secondary:hover {
+  background: $dark;
+  color: white;
+}
+
+.btn-outline-light:hover {
+  background: $yellow;
+}
+
+@mixin responsive-height($percentage) {
+  position: relative;
+  & > *:first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: $percentage;
+  }
+}
+
+.container-2-1 {
+  @include responsive-height(50%);
+}
+
+.container-3-1 {
+  @include responsive-height(33.3%);
+}
+
+.container-16-9 {
+  @include responsive-height(percentage(9/16));
+}
+
+.container-square {
+  @include responsive-height(100%);
+}
+
+@mixin circle-color($theColor) {
+  @include responsive-height(100%);
+  width: 45px;
+  display: block;
+  text-align: center;
+  i {
+    border-radius: 100%;
+    background-color: $theColor;
+    box-shadow: $box-shadow-sm;
+    font-size: 30px;
+    line-height: 1.5;
+  }
+}
+
+.fb-circle {
+  @include circle-color($blueFacebook);
+}
+
+.tw-circle {
+  @include circle-color($aquaTwitter);
+}
+
+.obj-fit-cover {
+  object-fit: cover;
+}
+
+.ajax-loader {
+  background-color: $gray-100;
+}
+
+.excerpt-title {
+  height: 56px;
+  overflow: hidden;
+}
+
+.excerpt {
+  max-height: 110px;
+  overflow: hidden;
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    pointer-events: none;
+    @include filter-gradient(rgba($white, 0), rgba($white, 1), vertical);
+    @include background-image(linear-gradient(top, rgba($white, 0) 0%, rgba($white, 1) 100%));
+  }
+}
+
+.owl-nav button {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+
+  & > span {
+    color: $dark;
+    font-size: 80px;
+  }
+  &.owl-prev {
+    left: -5px;
+  }
+  &.owl-next {
+    right: -32px;
+  }
+}
+
+.entry-content {
+  img {
+    max-width: 100%;
+  }
+}
+
+.post-type-archive-directory article.col:nth-child(odd) {
+  box-shadow: $box-shadow-sm;
+}
+
+.directory-template-default,
+.post-type-archive-directory {
+  .sfsi_Sicons {
+    display: none !important;
+  }
+}
+
+.modal .close {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+
+legend {
+  font-size: $font-size-base * 1.2;
+}
+
+#moreOpenModal {
+  font-size: $font-size-base * 1.2;
+  text-shadow: 0px 1px 3px $dark;
+}

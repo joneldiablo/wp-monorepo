@@ -1,0 +1,25 @@
+mixin form-size(spec)
+  - spec = spec || {}
+  - spec.__class = spec.__class || ''
+
+  .form-size(class=spec.__class)&attributes(attributes)
+    form(action='shop')
+      .form-row.w-100
+        .col.col-12.col-sm-4.form-group
+          select#ancho.form-control(name='ancho')
+            option(disabled='' selected='') Ancho
+            option(disabled='') --------
+        .col.col-12.col-sm-4.form-group
+          select#serie.form-control(name='serie')
+            option(disabled='' selected='') Alto
+            option(disabled='') --------
+        .col.col-12.col-sm-4.form-group
+          select#diametro.form-control(name='diametro')
+            option(disabled='' selected='') Rin
+            option(disabled='') --------
+        .col.col-12
+          p.medida.text-center
+        .col.col-12.form-group
+          input.btn.btn-primary.btn-block(type='submit' value='Buscar')
+        .col.col-12
+          img.d-block.m-auto.img-fluid(src='https://llanteradelvalle.com.mx/wp-content/uploads/2020/02/medida-llantas02.png' alt='' )

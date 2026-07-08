@@ -1,0 +1,40 @@
+br
+div
+  input#workshop(name="installationType" type="radio" value="workshop" data-checked="$installationType")
+  label(for="workshop") Instalación en taller
+  input#home(name="installationType" type="radio" value="home" data-checked="$installationType")
+  label(for="home") Servicio a domicilio
+  input#shipping(name="installationType" type="radio" value="shipping" data-checked="$installationType")
+  label(for="shipping") Envío
+  br
+  br
+div
+  label(for="price") Precio:
+  input#price(type="number" name="price" value="$price")
+  br
+  br
+.workshop-fields -- Instalación en taller --
+  div
+    label(for="address") Dirección de taller:
+    input#address(type="text" name="address" value="$address")
+    br
+    br
+.home-fields -- Servicio a domicilio --
+  div
+    label(for="pricePerUnit") Precio por unidad:
+    input#pricePerUnit(type="number" name="pricePerUnit" value="$pricePerUnit")
+    br
+    br
+.shipping-fields -- Envío --
+  div
+    label(for="shippingRegion") Región para envíos:
+    input#shippingRegion(type="text" name="shippingRegion" value="$shippingRegion", placeholder="Tulancingo Hidalgo")
+    br
+    br
+script.
+  jQuery('input:not([type])').attr('type', 'text');
+  var $it = jQuery('input[name="installationType"]')
+    .each(function(){
+      jQuery(this).prop('checked', jQuery(this).attr('data-checked')===jQuery(this).val());
+      console.log(jQuery(this).attr('data-checked'),jQuery(this).val());
+    });
